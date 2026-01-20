@@ -2,418 +2,423 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>Human Mind, Psychology & Counselling Awareness</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Counseling, Psychology & Human Mind</title>
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-  /* ================== Global Styles ================== */
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+body{
+  margin:0;
+  font-family:Poppins,Arial,sans-serif;
+  background:#f4f7fb;
+  scroll-behavior:smooth;
+}
 
-  body {
-    font-family: "Poppins", sans-serif;
-    overflow-x: hidden;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)),
-                url("https://images.unsplash.com/photo-1521791136064-7986c2920216") no-repeat center center/cover;
-    color: white;
-  }
+nav{
+  position:sticky;
+  top:0;
+  background:#073756;
+  padding:15px;
+  text-align:center;
+  z-index:1000;
+}
 
-  html {
-    scroll-behavior: smooth;
-  }
+nav a{
+  color:white;
+  margin:10px;
+  text-decoration:none;
+  font-size:14px;
+}
 
-  /* ================== Animations ================== */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(40px);
-    animation: fadeInUp 1.2s ease-out forwards;
-  }
+section{
+  padding:90px 20px;
+}
 
-  @keyframes fadeInUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+.container{
+  max-width:1200px;
+  margin:auto;
+}
 
-  .slide-up {
-    opacity: 0;
-    transform: translateY(40px);
-    animation: slideUp 1.4s ease forwards;
-  }
+h1{
+  text-align:center;
+  color:#073756;
+  margin-bottom:20px;
+}
 
-  @keyframes slideUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+.intro{
+  text-align:center;
+  font-size:18px;
+  max-width:900px;
+  margin:0 auto 50px;
+  color:#333;
+}
 
-  /* ================== Header ================== */
-  header {
-    text-align: center;
-    padding: 80px 20px;
-  }
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:25px;
+}
 
-  header h1 {
-    font-size: 48px;
-    font-weight: 700;
-    text-shadow: 0px 4px 12px black;
-  }
+.card{
+  background:white;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 12px 30px rgba(0,0,0,.15);
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
 
-  /* ================== Section ================== */
-  section {
-    padding: 50px 25px;
-    background: white;
-    color: #333;
-  }
+.card.show{
+  opacity:1;
+  transform:translateY(0);
+}
 
-  .section-title {
-    text-align: center;
-    font-size: 32px;
-    margin-bottom: 20px;
-    color: #2c3e50;
-  }
+.card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
 
-  .content {
-    max-width: 900px;
-    margin: auto;
-    font-size: 18px;
-    line-height: 1.7;
-  }
+.card-content{
+  padding:25px;
+}
 
-  .image-box {
-    display: flex;
-    justify-content: center;
-    margin: 30px 0;
-  }
+.card i{
+  font-size:40px;
+  color:#073756;
+  margin-bottom:10px;
+}
 
-  .image-box img {
-    width: 85%;
-    max-width: 650px;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
-  }
+.card h3{
+  color:#073756;
+  margin:10px 0;
+}
 
-  .image-box img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 30px rgba(0,0,0,0.4);
-  }
+.card p{
+  font-size:16px;
+  line-height:1.6;
+  color:#333;
+}
 
-  /* ================== Footer ================== */
-  footer {
-    background: #2c3e50;
-    color: white;
-    text-align: center;
-    padding: 30px;
-  }
+.footer{
+  background:#073756;
+  color:white;
+  padding:50px 20px;
+  text-align:center;
+}
 
-  /* ================== Counseling Cards ================== */
-  .counsel-section {
-    padding: 80px 20px;
-    background: linear-gradient(135deg, #0a2a43, #073756);
-    color: white;
-  }
-
-  .counsel-title {
-    text-align: center;
-    font-size: 38px;
-    font-weight: 700;
-    margin-bottom: 10px;
-  }
-
-  .counsel-sub {
-    text-align: center;
-    max-width: 800px;
-    margin: auto;
-    font-size: 18px;
-    opacity: 0.9;
-    margin-bottom: 40px;
-  }
-
-  .counsel-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-    gap: 26px;
-    margin-top: 30px;
-  }
-
-  .counsel-card {
-    background: rgba(255,255,255,0.08);
-    padding: 22px;
-    border-radius: 18px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.30);
-    backdrop-filter: blur(5px);
-    transition: 0.3s;
-    position: relative;
-  }
-
-  .counsel-card:hover {
-    transform: translateY(-8px);
-    background: rgba(255,255,255,0.12);
-  }
-
-  .counsel-card::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    border-radius: 18px;
-    pointer-events: none;
-  }
-
-  .counsel-img {
-    width: 100%;
-    border-radius: 14px;
-    margin-bottom: 15px;
-  }
-
-  .icon {
-    font-size: 30px;
-    margin-bottom: 10px;
-  }
-
-  /* ================== Counsellor Section ================== */
-  .counsellor-section {
-    padding: 70px 20px;
-    background: #f4f7fb;
-    color: #333;
-  }
-
-  .counsellor-box {
-    max-width: 850px;
-    margin: auto;
-    background: white;
-    padding: 35px;
-    border-radius: 18px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    opacity: 0;
-    animation: fadeInUp 1.2s ease-out forwards;
-  }
-
-  .counsellor-title {
-    text-align: center;
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 15px;
-    color: #073756;
-  }
-
-  .counsellor-subtitle {
-    text-align: center;
-    font-size: 18px;
-    opacity: 0.8;
-    margin-bottom: 30px;
-  }
-
-  .counsellor-details {
-    font-size: 17px;
-    line-height: 1.7;
-    color: #333;
-  }
-
-  .counsellor-contact {
-    margin-top: 25px;
-    padding: 18px;
-    background: #073756;
-    color: white;
-    border-radius: 12px;
-    text-align: center;
-    font-size: 18px;
-  }
-
-  .counsellor-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
-    transition: 0.3s;
-  }
-
+.admin-btn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#073756;
+  color:white;
+  padding:14px 16px;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:18px;
+}
 </style>
 </head>
+
 <body>
 
-<!-- ================== Header ================== -->
-<header class="fade-in">
-  <h1>Understanding the Importance of Counseling, Psychology & the Human Mind</h1>
-</header>
+<!-- NAVBAR -->
+<nav>
+  <a href="#mind">Human Mind</a>
+  <a href="#mindworks">Mind Works</a>
+  <a href="#psychology">Psychology</a>
+  <a href="#connection">Mind & Psychology</a>
+  <a href="#stress">Stress</a>
+  <a href="#stressmanage">Stress Control</a>
+  <a href="#studentmind">Student Mind</a>
+  <a href="#counselling">Counselling</a>
+</nav>
 
-<!-- ================== Why Counseling ================== -->
-<section>
-  <h2 class="section-title">Why Counseling Matters</h2>
-  <div class="content slide-up">
-    <p>
-      Counseling is a powerful process that helps individuals understand themselves better, cope with emotions, 
-      improve relationships, and develop healthier thought patterns. It offers a safe and confidential space 
-      to express fears, struggles, stress, and confusion without judgment.
-    </p>
+<!-- 1 HUMAN MIND -->
+<section id="mind">
+<div class="container">
+<h1>What is the Human Mind?</h1>
+<p class="intro">
+The human mind is the core of our existence. It controls thoughts, emotions, memories,
+learning ability, creativity, decision-making, and behaviour.
+</p>
 
-    <div class="image-box">
-      <img src="https://images.unsplash.com/photo-1524666041070-9d87656c25bb" alt="Counseling Session">
-    </div>
+<div class="cards">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1526256262350-7da7584cf5eb">
+<div class="card-content">
+<i class="fa-solid fa-brain"></i>
+<h3>Center of Thoughts</h3>
+<p>
+The mind enables thinking, imagination, reasoning, and problem-solving.
+It helps individuals understand situations and respond appropriately.
+</p>
+</div>
+</div>
 
-    <p>
-      Today, stress, anxiety, depression, relationship issues, academic pressure, and emotional conflicts have become 
-      common. Through counseling, individuals learn practical techniques to manage challenges and build emotional strength.
-    </p>
-  </div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773">
+<div class="card-content">
+<i class="fa-solid fa-heart"></i>
+<h3>Emotional Regulation</h3>
+<p>
+The human mind plays a vital role in managing emotions such as happiness,
+sadness, anger, fear, and confidence.
+</p>
+</div>
+</div>
+</div>
+</div>
 </section>
 
-<!-- ================== Psychology Section ================== -->
-<section>
-  <h2 class="section-title">Psychology – The Science of the Mind</h2>
-  <div class="content slide-up">
-    <p>
-      Psychology helps us understand how humans think, feel, and behave. It explores important questions like:
-    </p>
+<!-- 2 HOW MIND WORKS -->
+<section id="mindworks">
+<div class="container">
+<h1>How Does the Human Mind Work?</h1>
+<p class="intro">
+The mind continuously processes information received through the senses and past experiences.
+</p>
 
-    <ul>
-      <li>Why do we react the way we do?</li>
-      <li>How do thoughts influence emotions?</li>
-      <li>Why does stress affect our body and mind?</li>
-      <li>How can we develop healthy habits?</li>
-    </ul>
+<div class="cards">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69">
+<div class="card-content">
+<i class="fa-solid fa-lightbulb"></i>
+<h3>Thought–Emotion Cycle</h3>
+<p>
+Thoughts influence emotions, emotions influence behaviour,
+and behaviour shapes habits and personality.
+</p>
+</div>
+</div>
 
-    <div class="image-box">
-      <img src="https://images.unsplash.com/photo-1526256262350-7da7584cf5eb" alt="Psychology Concept">
-    </div>
-
-    <p>
-      Understanding psychology gives us the tools to build emotional resilience, improve relationships, 
-      and grow into mentally healthy individuals.
-    </p>
-  </div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330">
+<div class="card-content">
+<i class="fa-solid fa-rotate"></i>
+<h3>Subconscious Mind</h3>
+<p>
+Many actions and reactions are guided by subconscious beliefs,
+fears, past experiences, and learned patterns.
+</p>
+</div>
+</div>
+</div>
+</div>
 </section>
 
-<!-- ================== Human Mind Section ================== -->
-<section>
-  <h2 class="section-title">The Human Mind – A World Within</h2>
-  <div class="content slide-up">
-    <p>
-      The human mind is incredibly powerful. It controls emotions, decisions, habits, and even our physical health. 
-      When the mind is overwhelmed, it affects every area of life — relationships, work, studies, sleep, and confidence.
-    </p>
+<!-- 3 PSYCHOLOGY -->
+<section id="psychology">
+<div class="container">
+<h1>What is Psychology?</h1>
+<p class="intro">
+Psychology is the scientific study of human behaviour and mental processes.
+</p>
 
-    <div class="image-box">
-      <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773" alt="Mindfulness">
-    </div>
+<div class="cards">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e">
+<div class="card-content">
+<i class="fa-solid fa-book"></i>
+<h3>Scientific Discipline</h3>
+<p>
+Psychology helps understand how people think, feel, learn, and interact
+in different situations.
+</p>
+</div>
+</div>
 
-    <p>
-      Through counseling and psychological support, individuals learn to understand their thoughts, heal emotional wounds, 
-      and develop clarity and balance.
-    </p>
-  </div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
+<div class="card-content">
+<i class="fa-solid fa-people-group"></i>
+<h3>Real-Life Application</h3>
+<p>
+Psychology is applied in education, healthcare, counselling,
+workplaces, and social development.
+</p>
+</div>
+</div>
+</div>
+</div>
 </section>
 
-<!-- ================== Counseling for Students ================== -->
-<section class="counsel-section fade-in">
-  <h2 class="counsel-title">Why Counseling Matters for College Students</h2>
-  <p class="counsel-sub">
-    College life is exciting, but it can also be overwhelming. Counseling gives students a safe space
-    to talk, understand themselves, and build emotional strength.
-  </p>
+<!-- 4 CONNECTION -->
+<section id="connection">
+<div class="container">
+<h1>Connection Between Human Mind and Psychology</h1>
+<p class="intro">
+The human mind is the subject, and psychology is the tool that helps us understand it.
+</p>
 
-  <div class="counsel-grid">
-
-    <!-- Card 1 -->
-    <div class="counsel-card fade-in">
-      <div class="icon">🧠</div>
-      <img class="counsel-img" src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&w=800&q=80" alt="Emotional Well-Being">
-      <h3>Emotional Well-Being</h3>
-      <p>Counseling helps students manage stress, anxiety, overthinking and emotional struggles in a safe, confidential environment.</p>
-    </div>
-
-    <!-- Card 2 -->
-    <div class="counsel-card fade-in" style="animation-delay:0.2s;">
-      <div class="icon">📚</div>
-      <img class="counsel-img" src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80" alt="Academic Support">
-      <h3>Academic Support</h3>
-      <p>Students learn time management, study techniques, focus improvement skills and how to handle exam fear.</p>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="counsel-card fade-in" style="animation-delay:0.4s;">
-      <div class="icon">🤝</div>
-      <img class="counsel-img" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80" alt="Relationship Challenges">
-      <h3>Relationship & Social Challenges</h3>
-      <p>Counseling builds communication skills, helps resolve conflicts and strengthens friendships & emotional maturity.</p>
-    </div>
-
-    <!-- Card 4 -->
-    <div class="counsel-card fade-in" style="animation-delay:0.6s;">
-      <div class="icon">🎯</div>
-      <img class="counsel-img" src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=800&q=80" alt="Self Awareness">
-      <h3>Self-Awareness & Personal Growth</h3>
-      <p>Students understand their strengths, personality, triggers, dreams and life goals with professional guidance.</p>
-    </div>
-
-    <!-- Card 5 -->
-    <div class="counsel-card fade-in" style="animation-delay:0.8s;">
-      <div class="icon">💼</div>
-      <img class="counsel-img" src="https://images.unsplash.com/photo-1497493292307-31c376b6e479?auto=format&fit=crop&w=800&q=80" alt="Career Confusion">
-      <h3>Career Confusion</h3>
-      <p>Counseling helps students choose courses, careers and higher studies based on strengths and long-term goals.</p>
-    </div>
-
-    <!-- Card 6 -->
-    <div class="counsel-card fade-in" style="animation-delay:1s;">
-      <div class="icon">🌿</div>
-      <img class="counsel-img" src="https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=800&q=80" alt="Balanced Life">
-      <h3>Healthy, Balanced Life</h3>
-      <p>Students learn to balance academics, friendships, mental health, sleep, hobbies and social media.</p>
-    </div>
-
-  </div>
+<div class="cards">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2">
+<div class="card-content">
+<i class="fa-solid fa-link"></i>
+<h3>Understanding Behaviour</h3>
+<p>
+Psychology explains how thoughts and emotions influence behaviour
+and decision-making.
+</p>
+</div>
+</div>
+</div>
+</div>
 </section>
 
-<!-- ================== Counsellor Section ================== -->
-<section class="counsellor-section">
-  <div class="counsellor-box">
-    <h2 class="counsellor-title">Meet the Counsellor</h2>
-    <p class="counsellor-subtitle">Guidance, support, and a safe space for every student</p>
+<!-- 5 STRESS -->
+<section id="stress">
+<div class="container">
+<h1>What is Stress?</h1>
+<p class="intro">
+Stress is the body and mind’s response to pressure, challenges, or overwhelming situations.
+</p>
 
-    <div class="counsellor-details">
-      <p>
-        Our campus provides professional counselling support to help students navigate academic challenges,
-        emotional stress, personal struggles, and life decisions. Whether a student is facing anxiety,
-        relationship issues, study pressure, lack of motivation, self-doubt, or confusion about their future,
-        counselling offers clarity, comfort, and confidence.
-      </p>
-
-      <p>
-        Students are encouraged to reach out freely and use this support system. Every conversation is handled
-        with empathy, respect, and complete confidentiality. The aim is to ensure that each student grows with
-        emotional stability, mental strength, academic focus, and personal well-being.
-      </p>
-
-      <p>
-        For students seeking guidance, this is a safe, welcoming space where you can share, reflect, and receive
-        support to become the best version of yourself.
-      </p>
-    </div>
-
-    <div class="counsellor-contact">
-      <strong>For counselling or more details:</strong><br>
-      Fr. Binny Kaiyaniyil<br>
-      Counsellor & Assistant Professor<br>
-      Health and Wellness Department<br>
-      Marian College Kuttikkanam (Autonomous)<br>
-      📞 9744046919
-    </div>
-
-  </div>
+<div class="cards">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe">
+<div class="card-content">
+<i class="fa-solid fa-bolt"></i>
+<h3>Academic & Emotional Pressure</h3>
+<p>
+Students experience stress due to exams, deadlines,
+expectations, and personal responsibilities.
+</p>
+</div>
+</div>
+</div>
+</div>
 </section>
 
-<!-- ================== Footer ================== -->
-<footer>
-  &copy; 2025 Counseling & Psychology Awareness. All rights reserved.
-</footer>
+<!-- 6 STRESS MANAGEMENT -->
+<section id="stressmanage">
+<div class="container">
+<h1>How to Manage Stress</h1>
+<p class="intro">
+Healthy stress management improves focus, emotional balance, and mental strength.
+</p>
+
+<div class="cards">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773">
+<div class="card-content">
+<i class="fa-solid fa-leaf"></i>
+<h3>Healthy Practices</h3>
+<p>
+Proper sleep, time management, relaxation techniques,
+and sharing problems reduce stress.
+</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 7 STUDENT MIND -->
+<section id="studentmind">
+<div class="container">
+<h1>How the Mind of Students Works</h1>
+<p class="intro">
+Students experience continuous mental development along with emotional and social challenges.
+</p>
+
+<div class="cards">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644">
+<div class="card-content">
+<i class="fa-solid fa-user-graduate"></i>
+<h3>Growth Phase</h3>
+<p>
+College life shapes identity, confidence, decision-making ability,
+and future career paths.
+</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 8 COUNSELLING -->
+<section id="counselling">
+<div class="container">
+<h1>Importance of Counselling for Students</h1>
+<p class="intro">
+Counselling provides emotional support, guidance, clarity, and mental well-being.
+</p>
+
+<div class="cards">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
+<div class="card-content">
+<i class="fa-solid fa-hand-holding-heart"></i>
+<h3>Safe Support System</h3>
+<p>
+Counselling offers a confidential and supportive environment
+for students to express concerns freely.
+</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d">
+<div class="card-content">
+<i class="fa-solid fa-shield-heart"></i>
+<h3>Personal Development</h3>
+<p>
+It improves self-awareness, emotional strength,
+academic focus, and overall well-being.
+</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+<p><strong>For counselling or more details:</strong></p>
+<p>
+Fr. Binny Kaiyaniyil<br>
+Counsellor & Assistant Professor<br>
+Health and Wellness Department<br>
+Marian College Kuttikkanam (Autonomous)<br>
+📞 9744046919
+</p>
+</div>
+
+<!-- ADMIN BUTTON -->
+<div class="admin-btn" onclick="adminAccess()">🔒</div>
+
+<script>
+// Scroll animation
+const cards = document.querySelectorAll('.card');
+window.addEventListener('scroll',()=>{
+  cards.forEach(card=>{
+    if(card.getBoundingClientRect().top < window.innerHeight - 100){
+      card.classList.add('show');
+    }
+  });
+});
+
+// Admin visitor counter
+function adminAccess(){
+  const pass = prompt("Admin Password:");
+  if(pass === "admin123"){
+    fetch("https://api.countapi.xyz/hit/marian-counselling-site/visits")
+    .then(res=>res.json())
+    .then(data=>{
+      alert("Total Visitors: " + data.value);
+    });
+  } else {
+    alert("Access Denied");
+  }
+}
+</script>
 
 </body>
 </html>
